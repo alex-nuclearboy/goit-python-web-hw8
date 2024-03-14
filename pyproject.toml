@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "goit-python-web-hw8"
 version = "1.0.0"
-description = ""
+description = "Models for data storage."
 authors = ["Alex Khreptak <alex.nuclearboy@gmail.com>"]
 license = "MIT"
 readme = "README.md"
