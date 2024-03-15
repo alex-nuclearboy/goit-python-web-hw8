@@ -36,26 +36,35 @@ def search_quotes_by_name(query_value):
 
 
 @cache
-def search_quotes_by_tag(query_value):
+def search_quotes_by_tag_prefix(query_value):
     """
-    Searches for quotes that have the tag.
+    Searches for quotes that contain tags starting with the specified prefix.
 
-    :param query_value: The tag to search for.
+    :param query_value: The tag prefix to search for.
     :return: A list of quotes that have a matching tag.
     """
     result = []
-    try:
-        matching_quotes = Quotes.objects(tags__iregex=f'^{query_value}')
-    except DoesNotExist:
-        print(f'No tag found starting with "{query_value}".')
-        return result
+    matching_quotes = Quotes.objects(tags__iregex=f'^{query_value}')
+
+    tag_list = set()
+    for quote in matching_quotes:
+        for tag in quote.tags:
+            if tag.startswith(query_value):
+                tag_list.add(tag)
 
     if matching_quotes:
-        print(f'Quotes that have a tag starting with "{query_value}":')
+        print(f'Quotes with tags "{", ".join(tag_list)}":')
         for quote in matching_quotes:
-            result.append(f'{quote.author.fullname}: {quote.quote}')
+            matching_tags = "; ".join(
+                [tag for tag in quote.tags if tag in tag_list]
+            )
+            result.append(
+                f'{quote.author.fullname} '
+                f'[{matching_tags}]: '
+                f'{quote.quote}'
+            )
     else:
-        print(f'There are no quotes with the tag "{query_value}".')
+        print(f'There are no quotes with tags starting with "{query_value}".')
     return result
 
 
@@ -103,7 +112,7 @@ def main():
                 [print(quote) for quote in quotes]
                 print()
             case "tag":
-                quotes = search_quotes_by_tag(query[1].strip())
+                quotes = search_quotes_by_tag_prefix(query[1].strip())
                 [print(quote) for quote in quotes]
                 print()
             case "tags":
