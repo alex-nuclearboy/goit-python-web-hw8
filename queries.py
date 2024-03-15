@@ -47,15 +47,15 @@ def search_quotes_by_tag(query_value):
     try:
         matching_quotes = Quotes.objects(tags__iregex=f'^{query_value}')
     except DoesNotExist:
-        print(f"No quote found starting with {query_value}.")
+        print(f'No tag found starting with "{query_value}".')
         return result
 
     if matching_quotes:
-        print(f"Quotes that have a tag starting with {query_value}:")
+        print(f'Quotes that have a tag starting with "{query_value}":')
         for quote in matching_quotes:
             result.append(f'{quote.author.fullname}: {quote.quote}')
     else:
-        print(f"There are no quotes by the tag {query_value}.")
+        print(f'There are no quotes with the tag "{query_value}".')
     return result
 
 
@@ -72,7 +72,7 @@ def search_quotes_by_tags(query_value):
     matching_quotes = Quotes.objects(tags__in=tag_list)
 
     if matching_quotes:
-        print(f"Quotes with the tags {query_value}:")
+        print(f'Quotes with the tags "{query_value}":')
         for quote in matching_quotes:
             matching_tags = "; ".join(
                 [tag for tag in quote.tags if tag in tag_list]
@@ -83,7 +83,7 @@ def search_quotes_by_tags(query_value):
                 f'{quote.quote}'
             )
     else:
-        print(f"No quotes found with tags: {query_value}")
+        print(f'No quotes found with tags "{query_value}"')
 
     return result
 
