@@ -10,7 +10,7 @@ db_name = config.get('DB', 'db_name')
 
 URI = (
     f'mongodb+srv://{mongodb_user}:{mongodb_pass}'
-    '@cluster0.xts1vbl.mongodb.net/?retryWrites=true&'
+    '@cluster0.eo7mc3z.mongodb.net/?retryWrites=true&'
     'w=majority&appName=Cluster0'
 )
 
