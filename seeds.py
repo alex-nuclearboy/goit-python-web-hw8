@@ -6,8 +6,8 @@ from connect import create_connect
 
 def load_authors():
     Authors.drop_collection()
-    with open('authors.json', 'r', encoding='utf-8') as f:
-        authors = json.load(f)
+    with open('authors.json', 'r', encoding='utf-8') as file:
+        authors = json.load(file)
         for a in authors:
             author = Authors(
                 fullname=a['fullname'],
@@ -20,8 +20,8 @@ def load_authors():
 
 def load_quotes():
     Quotes.drop_collection()
-    with open('qoutes.json') as f:
-        quotes = json.load(f)
+    with open('qoutes.json', 'r', encoding='utf-8') as file:
+        quotes = json.load(file)
         for q in quotes:
             for a in Authors.objects:
                 if a.fullname == q['author']:
