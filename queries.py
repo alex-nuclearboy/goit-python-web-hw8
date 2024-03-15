@@ -119,6 +119,8 @@ def main():
                 quotes = search_quotes_by_tags(query[1].strip())
                 [print(quote) for quote in quotes]
                 print()
+            case _:
+                print("Invalid command. Please try again.")
 
 
 if __name__ == "__main__":
