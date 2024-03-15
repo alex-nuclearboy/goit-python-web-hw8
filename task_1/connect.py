@@ -20,3 +20,4 @@ def create_connect():
     Creates a connection with the MongoDB.
     """
     connect(db=db_name, host=URI, ssl=True)
+    print("Successfully connected to MongoDB.")

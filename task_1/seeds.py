@@ -16,6 +16,7 @@ def load_authors():
                 description=a['description']
             )
             author.save()
+    print("Successfully loaded authors.")
 
 
 def load_quotes():
@@ -33,6 +34,7 @@ def load_quotes():
                 quote=q['quote']
             )
             quote.save()
+    print("Successfully loaded quotes.")
 
 
 if __name__ == '__main__':
