@@ -12,5 +12,6 @@ class Contact(Document):
     birthday = DateField()
     address = StringField()
     email = StringField(required=True)
+    phone = StringField(required=True)
     message_status = BooleanField(default=False)
     message_time = DateTimeField()
