@@ -1,8 +1,16 @@
 from mongoengine import Document 
-from mongoengine.fields import StringField, BooleanField
+from mongoengine.fields import (
+    StringField,
+    DateField,
+    DateTimeField,
+    BooleanField
+)
 
 
 class Contact(Document):
     fullname = StringField(required=True)
+    birthday = DateField()
+    address = StringField()
     email = StringField(required=True)
-    message_sent = BooleanField(default=False)
+    message_status = BooleanField(default=False)
+    message_time = DateTimeField()
