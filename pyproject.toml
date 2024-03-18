@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "goit-python-web-hw8"
-version = "1.0.0"
-description = "Models for data storage."
+version = "0.1.0"
+description = ""
 authors = ["Alex Khreptak <alex.nuclearboy@gmail.com>"]
 license = "MIT"
 readme = "README.md"
@@ -12,6 +12,8 @@ pymongo = {extras = ["srv", "tls"], version = "^4.6.2"}
 mongoengine = "^0.28.2"
 redis = "^5.0.3"
 redis-lru = "^0.1.2"
+pika = "^1.3.2"
+faker = "^24.2.0"
 
 
 [build-system]
