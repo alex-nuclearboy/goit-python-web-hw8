@@ -4,9 +4,10 @@ from models import Contact
 from faker import Faker
 from connect import create_connect
 
-fake_data = Faker()
+fake_data = Faker('en_GB')
 
 def create_fake_contacts(n=10):
+    Contact.drop_collection()
     for _ in range(n):
         birthday = fake_data.date_of_birth(minimum_age=18, maximum_age=80)
         contact = Contact(
@@ -14,6 +15,7 @@ def create_fake_contacts(n=10):
             birthday=birthday,
             email=fake_data.email(),
             phone=fake_data.phone_number(),
+            # phone=fake_data.bothify(text='+380 ## ### ####')
         )
         contact.save()
         send_to_queue(str(contact.id))
