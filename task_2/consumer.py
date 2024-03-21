@@ -52,8 +52,8 @@ def main():
     channel.start_consuming()
 
 if __name__ == '__main__':
-    create_connect()
     try:
+        create_connect()
         main()
     except KeyboardInterrupt:
         print('Interrupted')
