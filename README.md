@@ -34,7 +34,7 @@ cd goit-python-web-hw8
 poetry shell
 ```
 
-#### Demonstrating MongoDB and Redis:
+### Demonstrating MongoDB and Redis:
 
 - Navigate to the Task 1 directory:
 
@@ -99,7 +99,7 @@ docker stop redis-cache
 docker rm redis-cache
 ```
 
-#### RabbitMQ Email and SMS Simulation:
+### RabbitMQ Email and SMS Simulation:
 
 - Navigate to the Task 2 directory:
 ```bash
