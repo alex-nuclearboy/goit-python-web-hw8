@@ -37,11 +37,13 @@ poetry shell
 #### Demonstrating MongoDB and Redis:
 
 - Navigate to the Task 1 directory:
+
 ```bash
 cd task_1
 ```
 
 - Start Redis Container:
+
     - Unix/Linux/macOS:
     ```bash
     ./start-redis.sh
@@ -52,6 +54,7 @@ cd task_1
     ```
 
 - Populate Database:
+
     - Unix/Linux/macOS:
     ```bash
     python3 seeds.py
@@ -62,6 +65,7 @@ cd task_1
     ```
 
 - Execute queries with:
+
     - Unix/Linux/macOS:
     ```bash
     python3 queries.py
@@ -73,13 +77,18 @@ cd task_1
 
 The script runs indefinitely, accepting input commands for a flexible search experience. Accepts commands in the following format `command:value`.
 
-Examples: 
+Examples:
+
 `name: Steve Martin` — Retrieves and displays all quotes by Steve Martin.
+
 `tag:life` — Finds and returns a list of quotes associated with the tag 'life'.
+
 `tags:life,live` — Searches for and displays quotes tagged with 'life' or 'live' (Note: No spaces between tags).
 
 For a more streamlined search experience, the project supports abbreviated search queries, such as:
+
 `name:st` for quotes by authors whose names start with "St" like "Steve Martin".
+
 `tag:li` for quotes tagged with words starting with "li" like "life".
 
 - To exit the script and end the search session, simply enter the command `exit`.
@@ -98,6 +107,7 @@ cd ../task_2
 ```
 
 - Start RabbitMQ Container:
+
     - Unix/Linux/macOS:
     ```bash
     ./start-rabbitmq.sh
@@ -108,6 +118,7 @@ cd ../task_2
     ```
 
 - Generate fake contacts and record them in the database:
+
     - Unix/Linux/macOS:
     ```bash
     python3 producer.py
@@ -118,6 +129,7 @@ cd ../task_2
     ```
 
 - Process Email messages:
+
     - Unix/Linux/macOS:
     ```bash
     python3 consumer_email.py
@@ -130,6 +142,7 @@ cd ../task_2
 To stop the consumer script, press `CTRL+C`.
 
 - Process SMS messages:
+
     - Unix/Linux/macOS:
     ```bash
     python3 consumer_sms.py
