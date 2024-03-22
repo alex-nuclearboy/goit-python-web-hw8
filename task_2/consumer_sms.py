@@ -20,7 +20,10 @@ def callback(ch, method, properties, body):
     contact = Contact.objects.with_id(contact_id)
 
     if contact:
-        print(f"Sending SMS to {contact.fullname} at phone: {contact.phone}.")
+        print(
+            f" [x] Sending SMS to {contact.fullname} "
+            f"at phone: {contact.phone}."
+        )
         contact.message_status = True
         contact.save()
 

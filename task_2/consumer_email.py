@@ -20,7 +20,7 @@ def callback(ch, method, properties, body):
     contact = Contact.objects.with_id(contact_id)
 
     if contact:
-        print(f"Email sent to {contact.fullname} <{contact.email}>")
+        print(f" [x] Email sent to {contact.fullname} <{contact.email}>")
         contact.message_status = True
         contact.save()
 
