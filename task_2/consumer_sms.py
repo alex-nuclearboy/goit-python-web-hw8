@@ -1,5 +1,6 @@
 import pika
 import json
+import sys
 from connect import create_connect
 from models import Contact
 
@@ -52,3 +53,4 @@ if __name__ == '__main__':
         main()
     except KeyboardInterrupt:
         print("Stopping consuming...")
+        sys.exit(0)
