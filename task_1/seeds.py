@@ -21,7 +21,7 @@ def load_authors():
 
 def load_quotes():
     Quotes.drop_collection()
-    with open('qoutes.json', 'r', encoding='utf-8') as file:
+    with open('quotes.json', 'r', encoding='utf-8') as file:
         quotes = json.load(file)
         for q in quotes:
             for a in Authors.objects:
