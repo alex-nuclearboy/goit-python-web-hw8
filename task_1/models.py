@@ -10,11 +10,11 @@ from mongoengine.fields import (
 class Authors(Document):
     fullname = StringField(max_length=30, required=True)
     born_date = DateTimeField()
-    born_location = StringField(max_length=50)
+    born_location = StringField(max_length=150)
     description = StringField()
 
 
 class Quotes(Document):
-    tags = ListField(StringField(max_length=30))
+    tags = ListField(StringField(max_length=50))
     author = ReferenceField('Authors', reverse_delete_rule=CASCADE)
     quote = StringField(required=True)
